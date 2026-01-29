@@ -13,12 +13,16 @@ export function ChatInput({
   setChatMessages,
   apiKey,
 }: chatInput) {
+  console.log(apiKey);
   const [inputText, setinputText] = useState<string>("");
   async function handleButton() {
     const headers = {
-      Authorization: apiKey,
-      "content-Type": "application/json",
+      Authorization: `Bearer ${apiKey}`,
+      "Content-Type": "application/json",
+      "HTTP-Referer": window.location.origin,
+      "X-Title": "Chatbot Internship Project",
     };
+
     const post = await axios.post(
       "https://openrouter.ai/api/v1/chat/completions",
       {
