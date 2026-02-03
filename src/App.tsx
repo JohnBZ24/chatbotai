@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { ChatInput } from "./components/chatInput";
+import { ChatInput } from "./components/ChatInput";
 import { ChatMessages } from "./components/ChatMessage";
+import { MdInput } from "./components/MdInput";
 function App() {
   const [chatmessages, setChatMessages] = useState<
     { message: string; sender: string }[]
@@ -15,7 +16,7 @@ function App() {
   return (
     <>
       <form onSubmit={handleKey} className="mt-2">
-        <label htmlFor="key" className=" ml-2 mr-2 font-sans ">
+        <label htmlFor="key" className=" ml-2 mr-2 font-sans  bg-gradient-to-r from-black to-gray-200 text-white ">
           Enter your open-router key
         </label>
         <input
@@ -36,6 +37,7 @@ function App() {
         chatmessages={chatmessages}
         setChatMessages={setChatMessages}
       />
+      <MdInput />
     </>
   );
 }

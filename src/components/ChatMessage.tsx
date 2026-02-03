@@ -2,11 +2,11 @@ import robotProfileImage from "../assets/robot.png";
 import userProfileImage from "../assets/user.png";
 import loadingspinnergif from "../assets/loading-spinner.gif";
 
-type ChatM = {
+type ChatMessageProps = {
   message: string;
   sender: string;
 };
-export function ChatMessage({ message, sender }: ChatM) {
+export function ChatMessage({ message, sender }: ChatMessageProps) {
   return (
     <div
       className={
@@ -29,10 +29,10 @@ export function ChatMessage({ message, sender }: ChatM) {
     </div>
   );
 }
-type ChatMs = {
+type ChatMessagesProps = {
   chatmessages: { message: string; sender: string }[];
 };
-export function ChatMessages({ chatmessages }: ChatMs) {
+export function ChatMessages({ chatmessages }: ChatMessagesProps) {
   const renderedmessages = chatmessages.map((cm) => {
     return <ChatMessage message={cm.message} sender={cm.sender} />;
   });
